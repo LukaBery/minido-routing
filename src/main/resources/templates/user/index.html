@@ -1,0 +1,27 @@
+<div>
+    <div th:insert="~{layout/header :: header}"/>
+    <h3>유저 상세 페이지</h3>
+    <h4 th:text="@{유저 아이디: {id} (id=${user.id})}"></h4>
+    <form action="/user/update" method="#" th:method="put">
+        <div>
+            <div>
+                <input type="hidden" name="id" placeholder="ID" maxlength="100" th:value="${user.id}">
+            </div>
+        </div>
+        <div>
+            <div>
+                이메일: <input type="text" name="email" placeholder="이메일" maxlength="100" th:value="${user.email}">
+            </div>
+        </div>
+        <div></div>
+        <button type="submit">
+            <span>수정하기	</span>
+        </button>
+    </form>
+
+    <form action="#" th:action="@{/user/{id}/withdrawal (id=${user.id})}" method="#" th:method="delete">
+        <button type="submit">
+            <span>탈퇴하기	</span>
+        </button>
+    </form>
+</div>

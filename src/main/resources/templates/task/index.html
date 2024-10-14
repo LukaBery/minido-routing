@@ -1,0 +1,24 @@
+<div>
+    <div th:insert="~{layout/header :: header}"/>
+    <h4 th:text="${task.title}"></h4>
+    <div>
+        <!-- TODO:: 업무 추가 정보 -->
+        <div th:text="${task.content}"></div>
+
+        <p></p>
+        <!-- TODO:: 업무에 태그 추가 및 목록 -->
+
+        <!-- TODO:: 업무에 마일스톤 추가 및 목록-->
+
+    </div>
+
+    <div>
+        <!--   TODO::  댓글 목록    -->
+        <h5>댓글 목록</h5>
+        <div th:each="comment : ${comments_admin}" th:value="${comment}">
+            <div>
+                <p th:text="${comment.content}"></p>
+            </div>
+        </div>
+    </div>
+</div>

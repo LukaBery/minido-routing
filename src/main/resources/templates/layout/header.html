@@ -1,0 +1,16 @@
+<div style="display: flex; align-items: center; justify-content: space-around; background-color: royalblue" th:fragment="header">
+    <div style="display: flex">
+    <h4>Dooray!</h4>
+    &nbsp;
+    <h4>Task</h4>
+    </div>
+
+    <div style="display: flex">
+        <a href="/logout">로그아웃</a>
+        <div>
+            &nbsp;
+            &nbsp;
+            <a href="/user" th:text="${userId}"></a>
+        </div>
+    </div>
+</div>

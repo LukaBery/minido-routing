@@ -1,0 +1,28 @@
+<body>
+<div id="__next" data-reactroot="">
+    <div>
+        <div>
+            <div>
+                <h3>업무 생성하기</h3>
+            </div>
+            <form method="post" action="/task/new">
+                <div>
+                    <div>
+                        <input type="text" name="title" placeholder="제목" value="">
+                    </div>
+
+                    <div>
+                        <input type="text" name="content" placeholder="내용" value="">
+                    </div>
+                    <input type="hidden" name="userId" th:value="${userId}">
+                    <input type="hidden" name="projectId" th:value="${projectId}">
+                </div>
+                <button type="submit">
+                    <span>생성하기	</span>
+                </button>
+            </form>
+        </div>
+    </section>
+    </div>
+</div>
+</body>

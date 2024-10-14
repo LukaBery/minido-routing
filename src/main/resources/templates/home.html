@@ -1,0 +1,28 @@
+<div>
+    <div th:insert="~{layout/header :: header}"/>
+
+    <h4>프로젝트 목록 페이지</h4>
+    <div style="align-items: flex-end">
+        <a href="/project/new">프로젝트 생성</a>
+    </div>
+
+    <div style="display: flex; justify-content: space-between">
+<!--        <div>-->
+<!--            <h5>관리 중인 프로젝트</h5>-->
+<!--            <div th:each="project : ${projects_admin}" th:value="${project}">-->
+<!--                <div>-->
+<!--                    프로젝트 명: <a th:href="@{/projects/{id} (id=${project.projectId})}" th:text="${project.title}"></a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div>
+            <h5>참여 중인 프로젝트</h5>
+            <div th:each="project : ${projects_member}" th:value="${project}">
+                <div>
+                    프로젝트 명: <a th:href="@{/projects/{id} (id=${project.projectId})}" th:text="${project.title}"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div>
+    <div th:insert="~{layout/header :: header}"/>
+    <h4>프로젝트 명</h4>
+    <h4 th:text="${project.title}"></h4>
+    <div>
+        <p th:text="${project.status}"></p>
+        &nbsp;
+        &nbsp;
+        <div style="display: flex">
+            <div>
+                <p>프로젝트에 멤버 추가하기</p>
+                <form method="post" action="/projects/users">
+                    <div>
+                        <div>
+                            <input type="hidden" name="ownerId" th:value="${userId}">
+                        </div>
+
+                        <div>
+                            <input type="text" name="userId" placeholder="유저 아이디" value="">
+                        </div>
+                        <input type="hidden" name="projectId" th:value="${project.projectId}">
+                    </div>
+                    <button type="submit">
+                        <span>추가하기	</span>
+                    </button>
+                </form>
+            </div>
+        &nbsp;
+        &nbsp;
+            <div>
+                <p>프로젝트에 태그 추가하기</p>
+                <form method="post" action="/tags">
+                    <div>
+                        <div>
+                            <input type="text" name="content" placeholder="태그 내용" value="">
+                        </div>
+                        <input type="hidden" name="projectId" th:value="${project.projectId}">
+                    </div>
+                    <button type="submit">
+                        <span>태그 추가하기	</span>
+                    </button>
+                </form>
+                <p>태그 내용</p>
+                <div th:each="tag : ${tags}" th:value="${tag}">
+                    <div style="display: flex">
+                        <form action="#" th:action="@{/tags/{id} (id=${tag.tagId})}" method="#" th:method="put">
+                        <input type="text" name="content" th:value="${tag.content}"></input>
+                            <input type="hidden" name="projectId" th:value="${project.projectId}">
+                            <button type="submit" class="btn btn-primary">수정</button>
+                        </form>
+
+                        <form action="#" th:action="@{/tags/{id} (id=${tag.tagId})}" method="#" th:method="delete">
+                            <button type="submit" class="btn btn-danger">삭제</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <!-- TODO:: 프로젝트 마일스톤 추가 및 목록 확인 및 삭제 수정 -->
+        </div>
+    </div>
+
+    <div>
+        <a th:href="@{/task/project/{id}/new (id=${project.projectId})}">업무 생성</a>
+    </div>
+    <div>
+        <!--   TODO::  업무 목록    -->
+        <h5>업무 목록</h5>
+        <div th:each="task : ${tasks_admin}" th:value="${task}">
+            <div>
+                <a th:href="@{/task/{id} (id=${task.taskId})}" th:text="${task.title}"></a>
+            </div>
+        </div>
+    </div>
+</div>
