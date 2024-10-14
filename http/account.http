@@ -1,0 +1,59 @@
+## 순서대로 하기
+
+
+### 유저생성 테스트 코드 clear^^
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "id": "test",
+  "pwd": "123",
+  "email": "nhn@nhn.com"
+}
+
+### 로그인 시도 clear ^^
+GET http://localhost:8080/api/login/test
+
+
+### 추가 유저생성 테스트 코드 clear^^
+POST http://localhost:8080/api/user
+Content-Type: application/json
+
+{
+  "id": "yuhyun",
+  "pwd": "1234",
+  "email": "test@test.com"
+}
+
+
+###모든 유저 조회하기 clear^^
+GET http://localhost:8080/api/users
+
+
+### 원하는 유저 하나 조회하기 clear^^
+GET http://localhost:8080/api/user/test
+
+
+### 삭제를 탈퇴 회원으로 fucking clear!!
+DELETE http://localhost:8080/api/user/test/withdrawal
+
+### 로그인 시도 clear ^^
+GET http://localhost:8080/api/login/test
+
+### 삭제를 휴먼 회원으로 fucking clear!!
+PATCH http://localhost:8080/api/user/test/dormant
+
+### 로그인 시도 clear ^^
+GET http://localhost:8080/api/login/test
+
+### 유저 수정
+POST http://localhost:8080/api/user/update/test
+Content-Type: application/json
+
+{
+  "id": "test",
+  "pwd": "changedPwd",
+  "email": "changed@test.com"
+}
+
+
